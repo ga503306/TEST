@@ -15,23 +15,35 @@ var Calu = {
         var height = $('#height').val();
         //進位到整數 = 幅數 = 寬度2（兩倍用布量）/30.3（換算成尺）/5（5呎，一幅是五尺）=
         var vu = Math.ceil(width * 2 / 30.3 / 5);
-        //進位到第一位數 = 碼數 =（高度/30.3）+1（上下反摺30公分左右）｝幅數/3（一碼3尺）
-        var ma = Math.ceil((((height / 30.3) + 1) * vu / 3) / 10) * 10;
+        //進位到小數第一位數 = 碼數 =（高度/30.3）+1（上下反摺30公分左右）｝幅數/3（一碼3尺）
+        var ma = Math.ceil((((height / 30.3) + 1) * vu / 3) * 10) / 10;
         //布價 = 折數 * 單價 * 碼數
         //最高價 最低價
-        var amt_low = 0.9 * price_low * ma;
-        var amt_high = 0.4 * price_high * ma;
+        var amt_low = 1 * price_low * ma;
+        var amt_high = 1 * price_high * ma;
         $('#amt_low').val(amt_low);
         $('#amt_high').val(amt_high);
         //軌道 (寬度/30.3)*100=軌道前
-        var rail = roundToTwo(width / 30.3) * 100
+        var rail = Math.ceil(width / 30.3) * 100
+        //如果低於500，軌道價就等於500
+        if (rail < 500) {
+            rail = 500;
+        }
         $('#rail').val(rail);
-        //車工 = 碼數 * 230
-        var turner = ma * 230;
+        //車工 = 幅數 * 250
+        var turner = vu * 250;
         $('#turner').val(turner);
+        //安裝費 50一尺
+        var install = Math.ceil(width / 30.3) * 50;
+         //如果低於500，安裝費就等於500
+        if (install < 500) {
+            install = 500;
+        }
+        $('#install').val(install);
+
         //總金額
-        var total_low = amt_low * 2.5 + turner + rail;
-        var total_high = amt_high * 2.5 + turner + rail;
+        var total_low = amt_low * 2.5 + turner + rail + install;
+        var total_high = amt_high * 2.5 + turner + rail + install;
         $('#total_low').val(total_low);
         $('#total_high').val(total_high);
     }
