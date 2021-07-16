@@ -42,8 +42,8 @@ var Calu = {
         $('#install').val(install);
 
         //總金額
-        var total_low = amt_low * 2.5 + turner + rail + install;
-        var total_high = amt_high * 2.5 + turner + rail + install;
+        var total_low = Math.ceil(amt_low * 2.5 + turner + rail + install);
+        var total_high = Math.ceil(amt_high * 2.5 + turner + rail + install);
         $('#total_low').val(total_low);
         $('#total_high').val(total_high);
     }
