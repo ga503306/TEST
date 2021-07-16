@@ -32,93 +32,95 @@
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">寬度：</span>
-                    </div>
-                    <input id="width" type="number" class="form-control" />
-                    <div class="input-group-append">
-                        <span class="input-group-text">公分</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">高度：</span>
-                    </div>
-                    <input id="height" type="number" class="form-control" />
-                    <div class="input-group-append">
-                        <span class="input-group-text">公分</span>
+    <div class="container border border-dark rounded">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">寬度：</span>
+                        </div>
+                        <input id="width" type="number" class="form-control" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">公分</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm">
-                <button type="button" class="btn btn-primary" onclick="Calu.check()">計算</button>
-            </div>
-        </div>
-    </div>
-    <hr style="filter: alpha(opacity=100,finishopacity=0,style=3); border-top: 2px solid rgba(0,0,0,.1);" width="80%" color="#212529" size="3"/>
-    <div class="container">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">布價：</span>
-            </div>
-            <input id="amt_low" type="number" class="form-control" />
-            <div class="input-group-append">
-                <span class="input-group-text">
-                    ~
-                </span>
-            </div>
-            <input id="amt_high" type="number" class="form-control" />
-            <div class="input-group-append">
-                <span class="input-group-text">NT$</span>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">軌道錢：</span>
-                    </div>
-                    <input id="rail" type="number" class="form-control" />
-                    <div class="input-group-append">
-                        <span class="input-group-text">NT$</span>
+                <div class="col-sm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">高度：</span>
+                        </div>
+                        <input id="height" type="number" class="form-control" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">公分</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">車工：</span>
-                    </div>
-                    <input id="turner" type="number" class="form-control" />
-                    <div class="input-group-append">
-                        <span class="input-group-text">NT$</span>
-                    </div>
+                <div class="col-sm">
+                    <button type="button" class="btn btn-primary" onclick="Calu.check()">計算</button>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">總金額：</span>
+        <hr style="filter: alpha(opacity=100,finishopacity=0,style=3); border-top: 2px solid rgba(0,0,0,.1);" width="80%" color="#212529" size="3" />
+        <div class="container">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">布價：</span>
+                </div>
+                <input id="amt_low" type="number" class="form-control" />
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        ~
+                    </span>
+                </div>
+                <input id="amt_high" type="number" class="form-control" />
+                <div class="input-group-append">
+                    <span class="input-group-text">NT$</span>
+                </div>
             </div>
-            <input id="total_low" type="number" class="form-control" />
-            <div class="input-group-append">
-                <span class="input-group-text">
-                    ~
-                </span>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">軌道錢：</span>
+                        </div>
+                        <input id="rail" type="number" class="form-control" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">NT$</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">車工：</span>
+                        </div>
+                        <input id="turner" type="number" class="form-control" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">NT$</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <input id="total_high" type="number" class="form-control" />
-            <div class="input-group-append">
-                <span class="input-group-text">NT$</span>
+        </div>
+        <div class="container">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">總金額：</span>
+                </div>
+                <input id="total_low" type="number" class="form-control" />
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        ~
+                    </span>
+                </div>
+                <input id="total_high" type="number" class="form-control" />
+                <div class="input-group-append">
+                    <span class="input-group-text">NT$</span>
+                </div>
             </div>
         </div>
     </div>
