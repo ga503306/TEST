@@ -26,6 +26,12 @@
     </script>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+        <a class="navbar-brand" href="#">窗簾簡易估價</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
     <div class="container">
         <div class="row">
             <div class="col-sm">
@@ -55,6 +61,7 @@
             </div>
         </div>
     </div>
+    <hr style="filter: alpha(opacity=100,finishopacity=0,style=3); border-top: 2px solid rgba(0,0,0,.1);" width="80%" color="#212529" size="3"/>
     <div class="container">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -73,24 +80,28 @@
         </div>
     </div>
     <div class="container">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">軌道錢：</span>
+        <div class="row">
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">軌道錢：</span>
+                    </div>
+                    <input id="rail" type="number" class="form-control" />
+                    <div class="input-group-append">
+                        <span class="input-group-text">NT$</span>
+                    </div>
+                </div>
             </div>
-            <input id="rail" type="number" class="form-control" />
-            <div class="input-group-append">
-                <span class="input-group-text">NT$</span>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">車工：</span>
-            </div>
-            <input id="turner" type="number" class="form-control" />
-            <div class="input-group-append">
-                <span class="input-group-text">NT$</span>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">車工：</span>
+                    </div>
+                    <input id="turner" type="number" class="form-control" />
+                    <div class="input-group-append">
+                        <span class="input-group-text">NT$</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
