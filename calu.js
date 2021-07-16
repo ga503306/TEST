@@ -1,15 +1,13 @@
-﻿var Calu = {
+var Calu = {
     init: function () {
         Calu.getCurrect();
     },
     getCurrect: function () {
-        $.get("https://raw.githubusercontent.com/ga503306/TEST/main/TEST", function (data) {
+        $.get("https://raw.githubusercontent.com/ga503306/TEST/main/config", function (data) {
             var config = JSON.parse(data);
             console.log(config);
             price_low = config.price_low;
             price_high = config.price_high;
-            onsale = config.onsale;
-            turner = config.turner;
         });
     },
     check: function () {
@@ -21,13 +19,21 @@
         var ma = Math.ceil((((height / 30.3) + 1) * vu / 3) / 10) * 10;
         //布價 = 折數 * 單價 * 碼數
         //最高價 最低價
-        var amt_low = onsale * price_low * ma;
-        var amt_high = onsale * price_high * ma;
+        var amt_low = 0.9 * price_low * ma;
+        var amt_high = 0.4 * price_high * ma;
         $('#amt_low').val(amt_low);
         $('#amt_high').val(amt_high);
         //軌道 (寬度/30.3)*100=軌道前
-        var rail = roundToTwo(width / 30.3) * turner
+        var rail = roundToTwo(width / 30.3) * 100
         $('#rail').val(rail);
+        //車工 = 碼數 * 230
+        var turner = ma * 230;
+        $('#turner').val(turner);
+        //總金額
+        var total_low = amt_low * 2.5 + turner + rail;
+        var total_high = amt_high * 2.5 + turner + rail;
+        $('#total_low').val(total_low);
+        $('#total_high').val(total_high);
     }
 }
 
