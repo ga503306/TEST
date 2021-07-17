@@ -57,7 +57,7 @@ var Calu = {
                 break;
             case '2':
                 //寬度2.5/30.3/3=碼數
-                var ma = width * 2.5 / 30.3 / 3
+                var ma = Math.ceil(width * 2.5 / 30.3 / 3 * 10) / 10
                 //布價 = 折數 * 單價 * 碼數
                 //最高價 最低價
                 var amt_low = 1 * tempo_price_low * ma;
