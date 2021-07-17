@@ -13,6 +13,22 @@ var Calu = {
     check: function () {
         var width = $('#width').val();
         var height = $('#height').val();
+        if (width * 3 < height) {
+            alert('高度不可超過寬度三倍');
+            return false;
+        }
+        switch ($("#type").val()) {
+            case '1':
+                break;
+            case '2':
+                break;
+            case '3':
+                break;
+            default:
+                alert('請選擇種類');
+                return false;
+        }
+        
         //進位到整數 = 幅數 = 寬度2（兩倍用布量）/30.3（換算成尺）/5（5呎，一幅是五尺）=
         var vu = Math.ceil(width * 2 / 30.3 / 5);
         //進位到小數第一位數 = 碼數 =（高度/30.3）+1（上下反摺30公分左右）｝幅數/3（一碼3尺）
