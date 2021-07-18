@@ -143,8 +143,8 @@ var Calu = {
             case '6':
             case '7':
             case '8':
-                //寬度高度2/30.3/3=才數
-                var cube = (width * height * 2 / 30.3 / 3) + 0.1
+                //寬度高度/30.3/30.3=才數
+                var cube = (width * height / 30.3 / 30.3) + 0.1
                 //最高價 最低價 * 才數
                 var amt_low = 1 * price_low_array[$("#type").val() - 1] * cube;
                 var amt_high = 1 * price_low_array[$("#type").val() - 1] * cube;
