@@ -158,7 +158,7 @@ var Calu = {
                 }
                 //最高價 最低價 * 才數
                 var amt_low = 1 * price_low_array[$("#type").val() - 1] * cube;
-                var amt_high = 1 * price_low_array[$("#type").val() - 1] * cube;
+                var amt_high = 1 * price_high_array[$("#type").val() - 1] * cube;
                 $('#amt_low').val(amt_low);
                 $('#amt_high').val(amt_high);
 
