@@ -171,8 +171,8 @@ var Calu = {
                 $('#install').val(install);
 
                 //總金額
-                var total_low = Math.ceil(amt_low * 2.5 + install);
-                var total_high = Math.ceil(amt_high * 2.5 + install);
+                var total_low = Math.ceil(amt_low + install);
+                var total_high = Math.ceil(amt_high + install);
                 $('#total_low').val(total_low);
                 $('#total_high').val(total_high);
                 break;
