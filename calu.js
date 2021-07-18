@@ -145,6 +145,17 @@ var Calu = {
             case '8':
                 //寬度高度/30.3/30.3=才數
                 var cube = (width * height / 30.3 / 30.3) + 0.1
+                //基本才 如果是鋁百葉 12 基本才12
+                if ($("#type").val() == 3) {
+                    if (cube < 12) {
+                        cube = 12;
+                    }
+                }
+                else {
+                    if (cube < 15) {
+                        cube = 15;
+                    }
+                }
                 //最高價 最低價 * 才數
                 var amt_low = 1 * price_low_array[$("#type").val() - 1] * cube;
                 var amt_high = 1 * price_low_array[$("#type").val() - 1] * cube;
