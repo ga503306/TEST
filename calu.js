@@ -73,7 +73,7 @@ var Calu = {
                 break;
             case '2':
                 //寬度2.5/30.3/3=碼數
-                var ma = (width * 2.5 / 30.3 / 3) + 0.1
+                var ma = accAdd(Math.floor((width * 2.5 / 30.3 / 3) * 10) / 10, 0.1)
                 //布價 = 折數 * 單價 * 碼數
                 //最高價 最低價
                 var amt_low = 1 * price_low_array[1] * ma;
@@ -106,7 +106,7 @@ var Calu = {
                 break;
             case '3':
                 //寬度2/30.3/3=碼數
-                var ma = (width * 2 / 30.3 / 3) + 0.1
+                var ma = accAdd(Math.floor((width * 2 / 30.3 / 3) * 10) / 10, 0.1)
                 //布價 = 折數 * 單價 * 碼數
                 //最高價 最低價
                 var amt_low = 1 * price_low_array[2] * ma;
@@ -144,7 +144,7 @@ var Calu = {
             case '7':
             case '8':
                 //寬度高度/30.3/30.3=才數
-                var cube = (width * height / 30.3 / 30.3) + 0.1
+                var cube = accAdd(Math.floor((width * height / 30.3 / 30.3) * 10) / 10, 0.1);
                 //基本才 如果是鋁百葉 12 基本才12
                 if ($("#type").val() == 3) {
                     if (cube < 12) {
@@ -188,3 +188,11 @@ var Calu = {
 function roundToTwo(num) {
     return +(Math.round(num + "e+2") + "e-2");
 }
+//加法
+function accAdd(arg1, arg2) {
+    var r1, r2, m;
+    try { r1 = arg1.toString().split(".")[1].length } catch (e) { r1 = 0 }
+    try { r2 = arg2.toString().split(".")[1].length } catch (e) { r2 = 0 }
+    m = Math.pow(10, Math.max(r1, r2));
+    return (arg1 * m + arg2 * m) / m;
+} 
