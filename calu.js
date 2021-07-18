@@ -8,8 +8,8 @@ var Calu = {
         $.get("https://raw.githubusercontent.com/ga503306/TEST/main/config", function (data) {
             var config = JSON.parse(data);
             console.log(config);
-            
-          
+
+
             price_low_array.push(config.price1_low);//摺景簾
             price_high_array.push(config.price1_high);
             price_low_array.push(config.price2_low);//蛇形簾
@@ -157,8 +157,8 @@ var Calu = {
                     }
                 }
                 //最高價 最低價 * 才數
-                var amt_low = 1 * price_low_array[$("#type").val() - 1] * cube;
-                var amt_high = 1 * price_high_array[$("#type").val() - 1] * cube;
+                var amt_low = accMul(price_low_array[$("#type").val() - 1], cube);
+                var amt_high = accMul(price_high_array[$("#type").val() - 1], cube);
                 $('#amt_low').val(amt_low);
                 $('#amt_high').val(amt_high);
 
@@ -169,10 +169,10 @@ var Calu = {
                     install = 500;
                 }
                 $('#install').val(install);
-            
+
                 //總金額
-                var total_low = Math.ceil(amt_low * 2.5 + install );
-                var total_high = Math.ceil(amt_high * 2.5 + install );
+                var total_low = Math.ceil(amt_low * 2.5 + install);
+                var total_high = Math.ceil(amt_high * 2.5 + install);
                 $('#total_low').val(total_low);
                 $('#total_high').val(total_high);
                 break;
@@ -195,4 +195,15 @@ function accAdd(arg1, arg2) {
     try { r2 = arg2.toString().split(".")[1].length } catch (e) { r2 = 0 }
     m = Math.pow(10, Math.max(r1, r2));
     return (arg1 * m + arg2 * m) / m;
-} 
+}
+//乘法
+function accMul(arg1, arg2) {
+    var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+    try {
+        m += s1.split(".")[1].length;
+    } catch (e) { }
+    try {
+        m += s2.split(".")[1].length;
+    } catch (e) { }
+    return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+}
