@@ -2,5 +2,7 @@
   "price_high": 350,
   "price_low": 80,
   "tempo_price_high": 358,
-  "tempo_price_low": 238
+  "tempo_price_low": 238,
+  "price2_high": 278,
+  "price2_low": 118
 }
