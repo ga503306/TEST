@@ -15,7 +15,7 @@ var Calu = {
         switch ($("#type").val()) {
             case '1':
                 //進位到整數 = 幅數 = 寬度2（兩倍用布量）/30.3（換算成尺）/5（5呎，一幅是五尺）=
-                var vu = Math.ceil(width * 2 / 30.3 / 5);
+                var vu = Math.ceil(width * 2.3 / 30.3 / 5);
                 //進位到小數第一位數 = 碼數 =（高度/30.3）+1（上下反摺30公分左右）｝幅數/3（一碼3尺）
                 var ma = Math.ceil((((height / 30.3) + 1) * vu / 3) * 10) / 10;
                 //布價 = 折數 * 單價 * 碼數
@@ -63,7 +63,7 @@ var Calu = {
                 break;
             case '3':
                 //寬度2/30.3/3=碼數
-                var ma = accAdd(Math.floor((width * 2 / 30.3 / 3) * 10) / 10, 0.1)
+                var ma = accAdd(Math.floor((width * 2.3 / 30.3 / 3) * 10) / 10, 0.1)
                 //布價 = 折數 * 單價 * 碼數
                 //最高價 最低價
                 var amt = 1 * price * ma;
