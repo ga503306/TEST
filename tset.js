@@ -1,13 +1,11 @@
-var price_low_array = [];
-var price_high_array = [];
+var price = 0;
 var Calu = {
     init: function () {
         Calu.getCurrect();
     },
     check: function () {
         //還沒寫完
-        price_high_array.push($('#price_high').val());
-        price_low_array.push($('#price_low').val());
+        price = $('#price').val());
         var width = $('#width').val();
         var height = $('#height').val();
         if (width * 3 < height) {
@@ -22,10 +20,8 @@ var Calu = {
                 var ma = Math.ceil((((height / 30.3) + 1) * vu / 3) * 10) / 10;
                 //布價 = 折數 * 單價 * 碼數
                 //最高價 最低價
-                var amt_low = 1 * price_low_array[0] * ma;
-                var amt_high = 1 * price_high_array[0] * ma;
-                $('#amt_low').val(amt_low);
-                $('#amt_high').val(amt_high);
+                var amt = 1 * price * ma;
+                $('#amt').val(amt);
                 //軌道 (寬度/30.3)*100=軌道前
                 var rail = Math.ceil(width / 30.3) * 100
                 //如果低於500，軌道價就等於500
@@ -45,20 +41,16 @@ var Calu = {
                 $('#install').val(install);
 
                 //總金額
-                var total_low = Math.ceil(amt_low * 2.5 + turner + rail + install);
-                var total_high = Math.ceil(amt_high * 2.5 + turner + rail + install);
-                $('#total_low').val(total_low);
-                $('#total_high').val(total_high);
+                var total = Math.ceil(amt * 2.5 + turner + rail + install);
+                $('#total').val(total);
                 break;
             case '2':
                 //寬度2.5/30.3/3=碼數
                 var ma = accAdd(Math.floor((width * 2.5 / 30.3 / 3) * 10) / 10, 0.1)
                 //布價 = 折數 * 單價 * 碼數
                 //最高價 最低價
-                var amt_low = 1 * price_low_array[1] * ma;
-                var amt_high = 1 * price_high_array[1] * ma;
-                $('#amt_low').val(amt_low);
-                $('#amt_high').val(amt_high);
+                var amt = 1 * price * ma;
+                $('#amt').val(amt);
                 //軌道 (寬度/30.3)*100=軌道前
                 var rail = Math.ceil(width / 30.3) * 200
                 //如果低於500，軌道價就等於500
@@ -78,20 +70,16 @@ var Calu = {
                 $('#install').val(install);
 
                 //總金額
-                var total_low = Math.ceil(amt_low * 2.5 + turner + rail + install);
-                var total_high = Math.ceil(amt_high * 2.5 + turner + rail + install);
-                $('#total_low').val(total_low);
-                $('#total_high').val(total_high);
+                var total = Math.ceil(amt * 2.5 + turner + rail + install);
+                $('#total').val(total);
                 break;
             case '3':
                 //寬度2/30.3/3=碼數
                 var ma = accAdd(Math.floor((width * 2 / 30.3 / 3) * 10) / 10, 0.1)
                 //布價 = 折數 * 單價 * 碼數
                 //最高價 最低價
-                var amt_low = 1 * price_low_array[2] * ma;
-                var amt_high = 1 * price_high_array[2] * ma;
-                $('#amt_low').val(amt_low);
-                $('#amt_high').val(amt_high);
+                var amt = 1 * price * ma;
+                $('#amt').val(amt);
                 //軌道 (寬度/30.3)*100=軌道前
                 var rail = Math.ceil(width / 30.3) * 100
                 //如果低於500，軌道價就等於500
@@ -112,11 +100,9 @@ var Calu = {
                 //鉛條 25一尺
                 var lead = Math.ceil(width / 30.3) * 25;
                 //總金額
-                var total_low = Math.ceil(amt_low * 2.5 + turner + rail + install + lead);
-                var total_high = Math.ceil(amt_high * 2.5 + turner + rail + install + lead);
-                $('#total_low').val(total_low);
-                $('#total_high').val(total_high);
-                break;
+                var total = Math.ceil(amt * 2.5 + turner + rail + install + lead);
+                $('#total').val(total);
+            break;
             case '4':
             case '5':
             case '6':
@@ -136,10 +122,8 @@ var Calu = {
                     }
                 }
                 //最高價 最低價 * 才數
-                var amt_low = accMul(price_low_array[$("#type").val() - 1], cube);
-                var amt_high = accMul(price_high_array[$("#type").val() - 1], cube);
-                $('#amt_low').val(amt_low);
-                $('#amt_high').val(amt_high);
+                var amt = accMul(price, cube);
+                $('#amt').val(amt);
 
                 //安裝費 50一尺
                 var install = Math.ceil(width / 30.3) * 50;
@@ -150,10 +134,8 @@ var Calu = {
                 $('#install').val(install);
 
                 //總金額
-                var total_low = Math.ceil(amt_low + install);
-                var total_high = Math.ceil(amt_high + install);
-                $('#total_low').val(total_low);
-                $('#total_high').val(total_high);
+                var total = Math.ceil(amt + install);
+                $('#total').val(total);
                 break;
             default:
                 alert('請選擇種類');
