@@ -5,7 +5,7 @@ var Calu = {
     },
     check: function () {
         //還沒寫完
-        price = $('#price').val());
+        price = $('#price').val();
         var width = $('#width').val();
         var height = $('#height').val();
         if (width * 3 < height) {
