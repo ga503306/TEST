@@ -24,20 +24,12 @@ var Calu = {
                 $('#amt').val(amt);
                 //軌道 (寬度/30.3)*100=軌道前
                 var rail = Math.ceil(width / 30.3) * 100
-                //如果低於500，軌道價就等於500
-                if (rail < 500) {
-                    rail = 500;
-                }
                 $('#rail').val(rail);
                 //車工 = 幅數 * 250
                 var turner = vu * 250;
                 $('#turner').val(turner);
                 //安裝費 50一尺
                 var install = Math.ceil(width / 30.3) * 50;
-                //如果低於500，安裝費就等於500
-                if (install < 500) {
-                    install = 500;
-                }
                 $('#install').val(install);
 
                 //總金額
@@ -53,20 +45,12 @@ var Calu = {
                 $('#amt').val(amt);
                 //軌道 (寬度/30.3)*100=軌道前
                 var rail = Math.ceil(width / 30.3) * 200
-                //如果低於500，軌道價就等於500
-                if (rail < 500) {
-                    rail = 500;
-                }
                 $('#rail').val(rail);
                 //車工 = 寬度/30.3 * 120
                 var turner = Math.ceil(width / 30.3 * 10) / 10 * 120;
                 $('#turner').val(turner);
                 //安裝費 50一尺
                 var install = Math.ceil(width / 30.3) * 50;
-                //如果低於500，安裝費就等於500
-                if (install < 500) {
-                    install = 500;
-                }
                 $('#install').val(install);
 
                 //總金額
@@ -82,20 +66,12 @@ var Calu = {
                 $('#amt').val(amt);
                 //軌道 (寬度/30.3)*100=軌道前
                 var rail = Math.ceil(width / 30.3) * 100
-                //如果低於500，軌道價就等於500
-                if (rail < 500) {
-                    rail = 500;
-                }
                 $('#rail').val(rail);
                 //車工 = 碼數 * 240
                 var turner = ma * 240;
                 $('#turner').val(turner);
                 //安裝費 50一尺
                 var install = Math.ceil(width / 30.3) * 50;
-                //如果低於500，安裝費就等於500
-                if (install < 500) {
-                    install = 500;
-                }
                 $('#install').val(install);
                 //鉛條 25一尺
                 var lead = Math.ceil(width / 30.3) * 25;
@@ -127,10 +103,6 @@ var Calu = {
 
                 //安裝費 50一尺
                 var install = Math.ceil(width / 30.3) * 50;
-                //如果低於500，安裝費就等於500
-                if (install < 500) {
-                    install = 500;
-                }
                 $('#install').val(install);
 
                 //總金額
