@@ -34,6 +34,8 @@ var Calu = {
 
                 //總金額
                 var total = Math.ceil(amt * 2.5 + turner + rail + install);
+                //乘3.2
+                total = Math.ceil(total * 3.2)
                 $('#total').val(total);
                 break;
             case '2':
@@ -55,6 +57,8 @@ var Calu = {
 
                 //總金額
                 var total = Math.ceil(amt * 2.5 + turner + rail + install);
+                //乘3.2
+                total = Math.ceil(total * 3.2)
                 $('#total').val(total);
                 break;
             case '3':
@@ -77,6 +81,8 @@ var Calu = {
                 var lead = Math.ceil(width / 30.3) * 25;
                 //總金額
                 var total = Math.ceil(amt * 2.5 + turner + rail + install + lead);
+                //乘3.2
+                total = Math.ceil(total * 3.2)
                 $('#total').val(total);
             break;
             case '4':
