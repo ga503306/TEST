@@ -22,14 +22,14 @@ var Calu = {
                 //最高價 最低價
                 var amt = 1 * price * ma;
                 $('#amt').val(amt);
-                //軌道 (寬度/30.3)*100=軌道前
-                var rail = Math.ceil(width / 30.3) * 100
+                //軌道 (寬度/30.3)*35=軌道前
+                var rail = Math.ceil(width / 30.3) * 35
                 $('#rail').val(rail);
-                //車工 = 幅數 * 250
-                var turner = vu * 250;
+                //車工 = 幅數 * 120
+                var turner = vu * 120;
                 $('#turner').val(turner);
-                //安裝費 50一尺
-                var install = Math.ceil(width / 30.3) * 50;
+                //安裝費 35一尺
+                var install = Math.ceil(width / 30.3) * 35;
                 $('#install').val(install);
 
                 //總金額
@@ -45,14 +45,14 @@ var Calu = {
                 //最高價 最低價
                 var amt = 1 * price * ma;
                 $('#amt').val(amt);
-                //軌道 (寬度/30.3)*100=軌道前
-                var rail = Math.ceil(width / 30.3) * 200
+                //軌道 (寬度/30.3)*48=軌道前
+                var rail = Math.ceil(width / 30.3) * 48
                 $('#rail').val(rail);
-                //車工 = 寬度/30.3 * 120
-                var turner = Math.ceil(width / 30.3 * 10) / 10 * 120;
+                //車工 = 寬度/30.3 * 150
+                var turner = Math.ceil(width / 30.3 * 10) / 10 * 150;
                 $('#turner').val(turner);
-                //安裝費 50一尺
-                var install = Math.ceil(width / 30.3) * 50;
+                //安裝費 35一尺
+                var install = Math.ceil(width / 30.3) * 35;
                 $('#install').val(install);
 
                 //總金額
@@ -68,17 +68,17 @@ var Calu = {
                 //最高價 最低價
                 var amt = 1 * price * ma;
                 $('#amt').val(amt);
-                //軌道 (寬度/30.3)*100=軌道前
-                var rail = Math.ceil(width / 30.3) * 100
+                //軌道 (寬度/30.3)*35=軌道前
+                var rail = Math.ceil(width / 30.3) * 35
                 $('#rail').val(rail);
-                //車工 = 碼數 * 240
-                var turner = ma * 240;
+                //車工 = 碼數 * 120
+                var turner = ma * 120;
                 $('#turner').val(turner);
-                //安裝費 50一尺
-                var install = Math.ceil(width / 30.3) * 50;
+                //安裝費 35一尺
+                var install = Math.ceil(width / 30.3) * 35;
                 $('#install').val(install);
-                //鉛條 25一尺
-                var lead = Math.ceil(width / 30.3) * 25;
+                //鉛條 15一尺
+                var lead = Math.ceil(width / 30.3) * 15;
                 //總金額
                 var total = Math.ceil(amt * 2.5 + turner + rail + install + lead);
                 //乘3.2
@@ -107,8 +107,8 @@ var Calu = {
                 var amt = accMul(price, cube);
                 $('#amt').val(amt);
 
-                //安裝費 50一尺
-                var install = Math.ceil(width / 30.3) * 50;
+                //安裝費 35一尺
+                var install = Math.ceil(width / 30.3) * 35;
                 $('#install').val(install);
 
                 //總金額
