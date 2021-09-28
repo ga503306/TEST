@@ -14,8 +14,8 @@ var Calu = {
         }
         switch ($("#type").val()) {
             case '1':
-                //進位到整數 = 幅數 = 寬度2（兩倍用布量）/30.3（換算成尺）/5（5呎，一幅是五尺）=
-                var vu = Math.ceil(width * 2.3 / 30.3 / 5);
+                //進位到整數 = 幅數 = 寬度2.1（兩倍用布量）/30.3（換算成尺）/5（5呎，一幅是五尺）=
+                var vu = Math.ceil(width * 2.1 / 30.3 / 5);
                 //進位到小數第一位數 = 碼數 =（高度/30.3）+1（上下反摺30公分左右）｝幅數/3（一碼3尺）
                 var ma = Math.ceil((((height / 30.3) + 1) * vu / 3) * 10) / 10;
                 //布價 = 折數 * 單價 * 碼數
@@ -25,22 +25,28 @@ var Calu = {
                 //軌道 (寬度/30.3)*35=軌道前
                 var rail = Math.ceil(width / 30.3) * 35
                 $('#rail').val(rail);
-                //車工 = 幅數 * 120
-                var turner = vu * 120;
+                //車工 = 幅數 * 100
+                var turner = vu * 100;
                 $('#turner').val(turner);
                 //安裝費 35一尺
                 var install = Math.ceil(width / 30.3) * 35;
+                //未滿210 算 210
+                if (install < 210) {
+                    install = 210;
+                }
                 $('#install').val(install);
 
                 //總金額
-                var total = Math.ceil(amt * 2.5 + turner + rail + install);
-                //乘3.2
-                total = Math.ceil(total * 3.2)
+                var total = Math.ceil(amt + turner + rail + install);
+                //乘3
+                total = total * 3
                 $('#total').val(total);
                 break;
             case '2':
-                //寬度2.5/30.3/3=碼數
-                var ma = accAdd(Math.floor((width * 2.5 / 30.3 / 3) * 10) / 10, 0.1)
+                //進位到整數 = 幅數 = 寬度2.5（兩倍用布量）/30.3（換算成尺）/5（5呎，一幅是五尺）=
+                var vu = Math.ceil(width * 2.5 / 30.3 / 5);
+                //進位到小數第一位數 = 碼數 =（高度/30.3）+1（上下反摺30公分左右）｝幅數/3（一碼3尺）
+                var ma = Math.ceil((((height / 30.3) + 1) * vu / 3) * 10) / 10;
                 //布價 = 折數 * 單價 * 碼數
                 //最高價 最低價
                 var amt = 1 * price * ma;
@@ -48,22 +54,26 @@ var Calu = {
                 //軌道 (寬度/30.3)*48=軌道前
                 var rail = Math.ceil(width / 30.3) * 48
                 $('#rail').val(rail);
-                //車工 = 寬度/30.3 * 150
-                var turner = Math.ceil(width / 30.3 * 10) / 10 * 150;
+                //車工 = 幅數 * 200
+                var turner = vu * 200;
                 $('#turner').val(turner);
                 //安裝費 35一尺
                 var install = Math.ceil(width / 30.3) * 35;
+                //未滿210 算 210
+                if (install < 210) {
+                    install = 210;
+                }
                 $('#install').val(install);
 
                 //總金額
-                var total = Math.ceil(amt * 2.5 + turner + rail + install);
-                //乘3.2
-                total = Math.ceil(total * 3.2)
+                var total = Math.ceil(amt + turner + rail + install);
+                //乘3
+                total = total * 3
                 $('#total').val(total);
                 break;
             case '3':
                 //寬度2/30.3/3=碼數
-                var ma = accAdd(Math.floor((width * 2.3 / 30.3 / 3) * 10) / 10, 0.1)
+                var ma = accAdd(Math.floor((width * 2.1 / 30.3 / 3) * 10) / 10, 0.1)
                 //布價 = 折數 * 單價 * 碼數
                 //最高價 最低價
                 var amt = 1 * price * ma;
@@ -80,9 +90,9 @@ var Calu = {
                 //鉛條 15一尺
                 var lead = Math.ceil(width / 30.3) * 15;
                 //總金額
-                var total = Math.ceil(amt * 2.5 + turner + rail + install + lead);
-                //乘3.2
-                total = Math.ceil(total * 3.2)
+                var total = Math.ceil(amt + turner + rail + install + lead);
+                //乘3
+                total = Math.ceil(total * 3)
                 $('#total').val(total);
             break;
             case '4':
@@ -91,7 +101,7 @@ var Calu = {
             case '7':
             case '8':
                 //寬度高度/30.3/30.3=才數
-                var cube = accAdd(Math.floor((width * height / 30.3 / 30.3) * 10) / 10, 0.1);
+                var cube = accAdd(Math.floor((width * height / 918) * 10) / 10, 0.1);
                 //基本才 如果是鋁百葉 12 基本才12
                 if ($("#type").val() == 3) {
                     if (cube < 12) {
@@ -110,9 +120,68 @@ var Calu = {
                 //安裝費 35一尺
                 var install = Math.ceil(width / 30.3) * 35;
                 $('#install').val(install);
-
+                //未滿210 算 210
+                if (install < 210) {
+                    install = 210;
+                }
                 //總金額
                 var total = Math.ceil(amt + install);
+                $('#total').val(total);
+                break;
+            //九呎布折景簾
+            case '9':
+                //進位到整數 = 幅數 = 寬度2.1（兩倍用布量）/30.3（換算成尺）/3
+                var ma = Math.ceil(width * 2.1 / 30.3 / 3);
+                //布價 = 折數 * 單價 * 碼數
+                //最高價 最低價
+                var amt = 1 * price * ma;
+                $('#amt').val(amt);
+                //軌道 (寬度/30.3)*35=軌道前
+                var rail = Math.ceil(width / 30.3) * 35
+                $('#rail').val(rail);
+                //車工 = 碼數 * 120
+                var turner = ma * 120;
+                $('#turner').val(turner);
+                //安裝費 35一尺
+                var install = Math.ceil(width / 30.3) * 35;
+                //未滿210 算 210
+                if (install < 210) {
+                    install = 210;
+                }
+                $('#install').val(install);
+
+                //總金額
+                var total = Math.ceil(amt + turner + rail + install);
+                //乘3
+                total = total * 3
+                $('#total').val(total);
+                break;
+            //九呎蛇型簾
+            case '10':
+                //進位到整數 = 幅數 = 寬度2.5（兩倍用布量）/30.3（換算成尺）/3
+                var ma = Math.ceil(width * 2.5 / 30.3 / 3);
+                //布價 = 折數 * 單價 * 碼數
+                //最高價 最低價
+                var amt = 1 * price * ma;
+                $('#amt').val(amt);
+                //軌道 (寬度/30.3)*48=軌道前
+                var rail = Math.ceil(width / 30.3) * 48
+                $('#rail').val(rail);
+                //車工 = 碼數 * 150
+                var turner = ma * 150;
+                $('#turner').val(turner);
+                //安裝費 35一尺
+                var install = Math.ceil(width / 30.3) * 35;
+                //未滿210 算 210
+                if (install < 210) {
+                    install = 210;
+                }
+                $('#install').val(install);
+
+                //總金額
+                var total = Math.ceil(amt + turner + rail + install);
+                //乘3
+                total = total * 3
                 $('#total').val(total);
                 break;
             default:
