@@ -8,7 +8,7 @@ var Calu = {
         price = $('#price').val();
 		//取得公司折數
 		getCorporateDiscount: function () {
-        $.get("https://raw.githubusercontent.com/ga503306/TEST/main/config", function (data) {
+        $.get("https://raw.githubusercontent.com/ga503306/TEST/main/CorporateDiscountConfig", function (data) {
             var config = JSON.parse(data);
             console.log(config);
 
