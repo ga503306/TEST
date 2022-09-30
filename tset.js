@@ -6,6 +6,31 @@ var Calu = {
     check: function () {
         //還沒寫完
         price = $('#price').val();
+		//取得公司折數
+		getCorporateDiscount: function () {
+        $.get("https://raw.githubusercontent.com/ga503306/TEST/main/config", function (data) {
+            var config = JSON.parse(data);
+            console.log(config);
+
+
+            price_low_array.push(config.price1_low);//摺景簾
+            price_high_array.push(config.price1_high);
+            price_low_array.push(config.price2_low);//蛇形簾
+            price_high_array.push(config.price2_high);
+            price_low_array.push(config.price3_low);//無接縫紗簾 折景簾
+            price_high_array.push(config.price3_high);
+            price_low_array.push(config.price4_low);//鋁百葉/塑鋁百葉
+            price_high_array.push(config.price4_high);
+            price_low_array.push(config.price5_low);//調光簾/斑馬簾
+            price_high_array.push(config.price5_high);
+            price_low_array.push(config.price6_low);//木百葉
+            price_high_array.push(config.price6_high);
+            price_low_array.push(config.price7_low);//風琴簾
+            price_high_array.push(config.price7_high);
+            price_low_array.push(config.price8_low);//捲簾
+            price_high_array.push(config.price8_high);
+        });
+    },
         var width = $('#width').val();
         var height = $('#height').val();
         if (width * 3 < height) {
