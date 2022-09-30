@@ -1,36 +1,31 @@
 var price = 0;
 var Calu = {
     init: function () {
-        Calu.getCurrect();
+        //Calu.getCorporateDiscount();
     },
     check: function () {
-        //還沒寫完
+		//取得單價
         price = $('#price').val();
-		//取得公司折數
-		getCorporateDiscount: function () {
-        $.get("https://raw.githubusercontent.com/ga503306/TEST/main/CorporateDiscountConfig", function (data) {
-            var config = JSON.parse(data);
-            console.log(config);
-
-
-            price_low_array.push(config.price1_low);//摺景簾
-            price_high_array.push(config.price1_high);
-            price_low_array.push(config.price2_low);//蛇形簾
-            price_high_array.push(config.price2_high);
-            price_low_array.push(config.price3_low);//無接縫紗簾 折景簾
-            price_high_array.push(config.price3_high);
-            price_low_array.push(config.price4_low);//鋁百葉/塑鋁百葉
-            price_high_array.push(config.price4_high);
-            price_low_array.push(config.price5_low);//調光簾/斑馬簾
-            price_high_array.push(config.price5_high);
-            price_low_array.push(config.price6_low);//木百葉
-            price_high_array.push(config.price6_high);
-            price_low_array.push(config.price7_low);//風琴簾
-            price_high_array.push(config.price7_high);
-            price_low_array.push(config.price8_low);//捲簾
-            price_high_array.push(config.price8_high);
-        });
-    },
+		//取得廠商折扣
+		let corporateDiscount =  $('#CorporateDiscount').val();
+		//如果廠商折扣的下拉選單有選
+		if(corporateDiscount){
+			//照廠商設定打折
+			//優吉亞 (0.4)
+			//湘苑(0.9)
+			//湘苑防焰(0.95)
+			//大都會(0.3)
+			//德克力 紗(0.3)
+			//華簾 (0.385)
+			//皇祖 (0.385)
+			//邑特(0.3)
+			//s百葉(0.4)
+			//達隆綜合本(0.4)
+			//海星(0.45)
+			//進東(0.38)
+			//帕紗(0.4)
+			price = Math.ceil(price * corporateDiscount);
+		}
         var width = $('#width').val();
         var height = $('#height').val();
         if (width * 3 < height) {
@@ -65,6 +60,8 @@ var Calu = {
                 var total = Math.ceil(amt + turner + rail + install);
                 //乘3
                 total = total * 3
+				//最後打折
+				total = Discount(total);
                 $('#total').val(total);
                 break;
             case '2':
@@ -93,7 +90,9 @@ var Calu = {
                 //總金額
                 var total = Math.ceil(amt + turner + rail + install);
                 //乘3
-                total = total * 3
+                total = total * 3;
+				//最後打折
+				total = Discount(total);
                 $('#total').val(total);
                 break;
             case '3':
@@ -117,7 +116,9 @@ var Calu = {
                 //總金額
                 var total = Math.ceil(amt + turner + rail + install + lead);
                 //乘3
-                total = Math.ceil(total * 3)
+                total = Math.ceil(total * 3);
+				//最後打折
+				total = Discount(total);
                 $('#total').val(total);
             break;
             case '4':
@@ -151,6 +152,8 @@ var Calu = {
                 }
                 //總金額
                 var total = Math.ceil(amt + install);
+				//最後打折
+				total = Discount(total);
                 $('#total').val(total);
                 break;
             //九呎布折景簾
@@ -178,7 +181,9 @@ var Calu = {
                 //總金額
                 var total = Math.ceil(amt + turner + rail + install);
                 //乘3
-                total = total * 3
+                total = total * 3;
+				//最後打折
+				total = Discount(total);
                 $('#total').val(total);
                 break;
             //九呎蛇型簾
@@ -206,7 +211,9 @@ var Calu = {
                 //總金額
                 var total = Math.ceil(amt + turner + rail + install);
                 //乘3
-                total = total * 3
+                total = total * 3;
+				//最後打折
+				total = Discount(total);
                 $('#total').val(total);
                 break;
             default:
@@ -239,4 +246,17 @@ function accMul(arg1, arg2) {
         m += s2.split(".")[1].length;
     } catch (e) { }
     return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+}
+
+//最後打折
+function Discount(total){
+  let discount =  $('#Discount').val();
+		//如果折扣的下拉選單有選
+		if(discount){	
+			total = Math.ceil(total * discount);
+			return total;
+		}
+		else{
+			return total;
+		}
 }
